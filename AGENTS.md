@@ -1,5 +1,5 @@
 <!-- UNITY CODE ASSIST INSTRUCTIONS START -->
-- Project name: SquiddyJump
+- Project name: MyFirstUnityRepository
 - Unity version: Unity 6000.2.6f2
 - Active game object:
   - Name: Player

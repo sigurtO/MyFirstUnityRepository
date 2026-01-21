@@ -51,13 +51,18 @@ public class PlayerController : MonoBehaviour
         }   
 
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    //Collision stay checks if the player is grounded everyframe
+    private void OnCollisionStay2D(Collision2D collision) // current bug that allows double jumping due to "sticky feet" fix by adding a slight cooldown after jumping so cannot instant change to true like .3 sec should do it
     {
-        if (Vector2.Dot(collision.GetContact(0).normal, Vector2.up) > 0.8f)
+        foreach (ContactPoint2D contact in collision.contacts)
         {
-            isGrounded = true;
+            if (Vector2.Dot(contact.normal, Vector2.up) > 0.8f)
+            {
+                isGrounded = true;
+                return;
+            }
         }
+
     }
 
     public void GameOver()
